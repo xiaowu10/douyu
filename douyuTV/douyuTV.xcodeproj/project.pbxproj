@@ -149,6 +149,61 @@
 			path = launch;
 			sourceTree = "<group>";
 		};
+		04BDFA621FB6F07000BFD4CF /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				04BDFA681FB6F07000BFD4CF /* Tools */,
+				04BDFA631FB6F07000BFD4CF /* Follow */,
+				04BDFA641FB6F07000BFD4CF /* Home */,
+				04BDFA651FB6F07000BFD4CF /* Live */,
+				04BDFA661FB6F07000BFD4CF /* Main */,
+				04BDFA671FB6F07000BFD4CF /* Profile */,
+			);
+			path = Class;
+			sourceTree = SOURCE_ROOT;
+		};
+		04BDFA631FB6F07000BFD4CF /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		04BDFA641FB6F07000BFD4CF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		04BDFA651FB6F07000BFD4CF /* Live */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		04BDFA661FB6F07000BFD4CF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		04BDFA671FB6F07000BFD4CF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		04BDFA681FB6F07000BFD4CF /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		04F8DA2A1FB5FFF800796156 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +233,7 @@
 				04F8DA3D1FB5FFF800796156 /* ViewController.m */,
 				04F8DA421FB5FFF800796156 /* Assets.xcassets */,
 				04F8DA471FB5FFF800796156 /* Info.plist */,
+				04BDFA621FB6F07000BFD4CF /* Class */,
 				04F8DA361FB5FFF800796156 /* Supporting Files */,
 			);
 			path = douyuTV;
