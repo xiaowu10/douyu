@@ -10,4 +10,8 @@
 
 @interface mainViewController : UIViewController
 
+@property(nonatomic,strong)UILabel* centerLabel;
+@property(nonatomic,strong)UIView* topView;
+@property(nonatomic,strong)UIScrollView* centreScrollView;
+
 @end

@@ -1,16 +1,13 @@
 //
 //  AppDelegate.m
-//  douyuTV
+//  UIscrollView
 //
-//  Created by Mac on 17/11/10.
+//  Created by Mac on 17/11/23.
 //  Copyright © 2017年 Mac. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "mainViewController.h"
-#import "homeViewController.h"
-#import "followViewController.h"
-#import "liveViewController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,38 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    
-    mainViewController* mainVC=[[mainViewController alloc]init];
-    liveViewController* liveVC=[[liveViewController alloc]init];
-    homeViewController* homeVC=[[homeViewController alloc]init];
-    followViewController* followVC=[[followViewController alloc]init];
-    
-    //要先调用viewdidlode方法将视图显示出来
-    mainVC.view.backgroundColor=[UIColor whiteColor];
-    liveVC.view.backgroundColor=[UIColor whiteColor];
-    homeVC.view.backgroundColor=[UIColor whiteColor];
-    followVC.view.backgroundColor=[UIColor whiteColor];
-    
-    UINavigationController* navMain=[[UINavigationController alloc]initWithRootViewController:mainVC];
-    navMain.view.backgroundColor=[UIColor whiteColor];
-    UINavigationController* navLive=[[UINavigationController alloc]initWithRootViewController:liveVC];
-    navLive.view.backgroundColor=[UIColor whiteColor];
-    UINavigationController* navHome=[[UINavigationController alloc]initWithRootViewController:homeVC];
-    navHome.view.backgroundColor=[UIColor whiteColor];
-    UINavigationController* navFollow=[[UINavigationController alloc]initWithRootViewController:followVC];
-    navFollow.view.backgroundColor=[UIColor whiteColor];
-    
-    UITabBarController* tabbarControl=[[UITabBarController alloc]init];
-    
-    NSArray* arr=[NSArray arrayWithObjects:navMain,navLive,navFollow,navHome, nil];
-    tabbarControl.viewControllers=arr;
-    
-    self.window.rootViewController=tabbarControl;
+    ViewController* view=[[ViewController alloc]init];
+    self.window.rootViewController=view;
     [self.window makeKeyAndVisible];
     
+    // Override point for customization after application launch.
     return YES;
 }
 

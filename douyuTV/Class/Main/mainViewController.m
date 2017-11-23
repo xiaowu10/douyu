@@ -31,8 +31,71 @@
     
     self.navigationItem.rightBarButtonItems=@[mainRightBarBtn1,mainRightBarBtn2,mainRightBarBtn3];
     
+    
+    //设置顶部视图
+    self.topView=[[UIView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 40)];
+    //topView.backgroundColor=[UIColor whiteColor];
+    [self.view addSubview:self.topView];
+    
+    NSArray* arr=[NSArray arrayWithObjects:@"推荐",@"游戏",@"娱乐",@"疯玩", nil];
+    for(int i=0;i<4;i++){
+        UIButton* topBtn=[[UIButton alloc]initWithFrame:CGRectMake((_topView.bounds.size.width/4)*i,0, _topView.bounds.size.width/4, _topView.bounds.size.height-5)];
+        [topBtn setTitle:arr[i] forState:UIControlStateNormal];
+        topBtn.backgroundColor=[UIColor whiteColor];
+        topBtn.tag=i;
+        [topBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [topBtn addTarget:self action:@selector(touchBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_topView addSubview:topBtn];
+        
+        //设置滚动视图与topview间的线条
+        if(topBtn.tag==1){
+            self.centerLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 35, _topView.bounds.size.width/4, 5    )];
+            self.centerLabel.backgroundColor=[UIColor blueColor];
+            [_topView addSubview:self.centerLabel];
+        }
+
+    }
+    
+    //设置中间滚动视图
+    _centreScrollView=[[UIScrollView alloc]init];
+    _centreScrollView.frame=CGRectMake(0, 104, self.view.bounds.size.width, self.view.bounds.size.height-104);
+    _centreScrollView.contentSize=CGSizeMake(self.view.bounds.size.width*4, self.view.bounds.size.height-104);
+    _centreScrollView.backgroundColor=[UIColor yellowColor];
+    //设置整页滚动
+    _centreScrollView.pagingEnabled=YES;
+    [self.view addSubview:_centreScrollView];
+    for(int i=0;i<4;i++){
+        UIView* centreView=[[UIView alloc]initWithFrame:CGRectMake(_centreScrollView.bounds.size.width*i, 0, _centreScrollView.bounds.size.width, _centreScrollView.bounds.size.height)];
+        centreView.tag=i;
+        if(centreView.tag==0){
+            centreView.backgroundColor=[UIColor redColor];
+        }else if (centreView.tag==1){
+            centreView.backgroundColor=[UIColor whiteColor];
+        }else if(centreView.tag==2){
+            centreView.backgroundColor=[UIColor grayColor];
+        }else{
+            centreView.backgroundColor=[UIColor blueColor];
+        }
+        [_centreScrollView addSubview:centreView];
+    }
+    
+    
     // Do any additional setup after loading the view.
 }
+
+- (void)touchBtn:(UIButton*)btn
+{
+    if(btn.tag==0){
+        _centerLabel.frame=CGRectMake(0, 35, btn.bounds.size.width, 5);
+    }else if(btn.tag==1){
+        _centerLabel.frame=CGRectMake(btn.bounds.size.width*btn.tag, 35, btn.bounds.size.width, 5);
+    }else if (btn.tag==2){
+        _centerLabel.frame=CGRectMake(btn.bounds.size.width*btn.tag, 35, btn.bounds.size.width, 5);
+    }else if(btn.tag==3){
+        _centerLabel.frame=CGRectMake(btn.bounds.size.width*btn.tag, 35, btn.bounds.size.width, 5);
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
