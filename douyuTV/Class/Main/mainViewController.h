@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface mainViewController : UIViewController
+@interface mainViewController : UIViewController<UIScrollViewDelegate>
 
 @property(nonatomic,strong)UILabel* centerLabel;
 @property(nonatomic,strong)UIView* topView;

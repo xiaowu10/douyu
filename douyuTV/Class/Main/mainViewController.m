@@ -63,6 +63,9 @@
     _centreScrollView.backgroundColor=[UIColor yellowColor];
     //设置整页滚动
     _centreScrollView.pagingEnabled=YES;
+    
+    self.centreScrollView.delegate=self;
+    
     [self.view addSubview:_centreScrollView];
     for(int i=0;i<4;i++){
         UIView* centreView=[[UIView alloc]initWithFrame:CGRectMake(_centreScrollView.bounds.size.width*i, 0, _centreScrollView.bounds.size.width, _centreScrollView.bounds.size.height)];
@@ -87,15 +90,39 @@
 {
     if(btn.tag==0){
         _centerLabel.frame=CGRectMake(0, 35, btn.bounds.size.width, 5);
+        CGPoint point= CGPointMake(self.view.bounds.size.width*btn.tag, 0);
+        [_centreScrollView setContentOffset:point animated:YES];
     }else if(btn.tag==1){
         _centerLabel.frame=CGRectMake(btn.bounds.size.width*btn.tag, 35, btn.bounds.size.width, 5);
+        CGPoint point= CGPointMake(self.view.bounds.size.width*btn.tag, 0);
+        [_centreScrollView setContentOffset:point animated:YES];
     }else if (btn.tag==2){
         _centerLabel.frame=CGRectMake(btn.bounds.size.width*btn.tag, 35, btn.bounds.size.width, 5);
+        CGPoint point= CGPointMake(self.view.bounds.size.width*btn.tag, 0);
+        [_centreScrollView setContentOffset:point animated:YES];
     }else if(btn.tag==3){
         _centerLabel.frame=CGRectMake(btn.bounds.size.width*btn.tag, 35, btn.bounds.size.width, 5);
+        CGPoint point= CGPointMake(self.view.bounds.size.width*btn.tag, 0);
+        [_centreScrollView setContentOffset:point animated:YES];
     }
+    
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if(_centreScrollView.contentOffset.x==0){
+        _centerLabel.frame=CGRectMake(_topView.bounds.size.width/4*0, 35, _topView.bounds.size.width/4, 5);
+    }
+    if(_centreScrollView.contentOffset.x==self.topView.bounds.size.width){
+        _centerLabel.frame=CGRectMake(_topView.bounds.size.width/4*1, 35, _topView.bounds.size.width/4, 5);
+    }
+    if(_centreScrollView.contentOffset.x==self.topView.bounds.size.width*2){
+        _centerLabel.frame=CGRectMake(_topView.bounds.size.width/4*2, 35, _topView.bounds.size.width/4, 5);
+    }
+    if(_centreScrollView.contentOffset.x==self.topView.bounds.size.width*3){
+        _centerLabel.frame=CGRectMake(_topView.bounds.size.width/4*3, 35, _topView.bounds.size.width/4, 5);
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
